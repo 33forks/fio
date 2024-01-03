@@ -15,9 +15,6 @@ jobs:
         - build: android
           os: ubuntu-22.04
           arch: aarch64-linux-android32
-        - build: android-recovery
-          os: ubuntu-22.04
-          arch: aarch64-linux-android32
 
     env:
       CI_TARGET_BUILD: ${{ matrix.build }}

@@ -28,9 +28,6 @@ main() {
                 echo "Error: could not find ${CC}"
                 return 1
             fi
-	    configure_flags+=(
-		"--build-static"
-	    )
             ;;
         */linux)
             case "${CI_TARGET_ARCH}" in
@@ -64,7 +61,7 @@ main() {
     configure_flags+=(--extra-cflags="${extra_cflags}")
 
     ./configure "${configure_flags[@]}" || (cat config.log && exit 1)
-    make -j 2
+    make LIBS="-Wl,-Bstatic -laio -Wl,-Bdynamic -landroid -lm -ldl -lz" -j1
 }
 
 main
