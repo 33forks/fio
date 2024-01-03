@@ -60,7 +60,7 @@ main() {
     esac
     configure_flags+=(--extra-cflags="${extra_cflags}")
 
-    ./configure "${configure_flags[@]}"
+    ./configure "${configure_flags[@]}" || (cat config.log && exit 1)
     make -j 2
 }
 
