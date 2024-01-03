@@ -22,6 +22,7 @@ jobs:
     env:
       CI_TARGET_BUILD: ${{ matrix.build }}
       CI_TARGET_ARCH: ${{ matrix.arch }}
+      CC: ${{ matrix.cc }}
 
     steps:
     - name: Checkout repo
