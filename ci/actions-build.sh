@@ -28,6 +28,9 @@ main() {
                 echo "Error: could not find ${CC}"
                 return 1
             fi
+	    configure_flags+=(
+		"--build-static"
+	    )
             ;;
         */linux)
             case "${CI_TARGET_ARCH}" in
