@@ -61,7 +61,7 @@ main() {
     configure_flags+=(--extra-cflags="${extra_cflags}")
 
     ./configure "${configure_flags[@]}" || (cat config.log && exit 1)
-    make LIBS="-Wl,-Bstatic -laio -Wl,-Bdynamic -landroid -lm -ldl -lz" -j1
+    make LIBS="-Wl,-Bstatic -Wl,-Bdynamic -landroid -lm -ldl -lz" -j1
 }
 
 main
