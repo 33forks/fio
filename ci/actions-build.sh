@@ -60,7 +60,7 @@ main() {
     esac
     configure_flags+=(--extra-cflags="${extra_cflags}")
 
-    ./configure libaio=yes "${configure_flags[@]}" || (cat config.log && exit 1)
+    libaio=yes ./configure "${configure_flags[@]}" || (cat config.log && exit 1)
     make LIBS="-Wl,-Bstatic -laio -Wl,-Bdynamic -landroid -lm -ldl -lz" -j1
 }
 
